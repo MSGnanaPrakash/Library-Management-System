@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="jumbotron">
+    <h4>Hello {{user.name}}, you belong to {{user.batch}}!</h4>
+  </div>
+
+  <div class="profile-book-section">
+    {{#if books.length}}
+      <h3 style="color: white;">Purchased Books</h3>
+      <ul class="list-group">
+        {{#each books}}
+        <li class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+          <div>
+            <strong>{{this.bookId.book_name}}</strong><br>
+            <small>Purchased on: {{this.purchaseDate}}</small><br>
+
+            {{#if this.active}}
+              <span class="badge bg-warning text-dark">Status: Active</span>
+            {{else}}
+              <span class="badge bg-success">Status: Returned</span><br>
+              {{#if this.fine}}
+                <span class="text-danger">Fine: ₹{{this.fine}}</span>
+              {{else}}
+                <span class="text-success">No fine</span>
+              {{/if}}
+            {{/if}}
+          </div>
+
+          {{#if this.active}}
+            <a href="/book/return/{{this.bookId._id}}" class="btn btn-info mt-2 mt-md-0">Return</a>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="text-center text-white">No books purchased yet.</p>
+    {{/if}}
+  </div>
+</div>

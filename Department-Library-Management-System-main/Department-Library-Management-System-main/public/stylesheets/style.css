@@ -1,0 +1,19 @@
+body {
+    background-image: url("/images/ssn1.jpg");
+    background-size: cover;  
+    background-repeat: no-repeat;  
+    background-position: center;  
+    height: 100vh;  
+}
+
+.book-item {
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: aliceblue;
+}
+
+form {
+    background-color: rgb(255, 248, 240);
+    padding: 10px;
+}

@@ -1,0 +1,26 @@
+<!-- Search Bar -->
+<form action="/book/search" method="GET" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="query" class="form-control" placeholder="Search for a book..." required />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<!-- Book List -->
+<div class="row">
+    {{#each books}}
+    <div class="col col-sm-3 book-item mb-4">
+        <form method="post" action="/book/purchase/{{this._id}}">
+            <div class="book-body p-2 border rounded shadow-sm">
+                <strong>Book Name:</strong> {{this.book_name}} <br>
+                <img src="{{this.cover_image}}" width="200" height="200" class="my-2"> <br>
+                <strong>Author:</strong> {{this.author_name}}<br>
+                <strong>ISBN:</strong> {{this.isbn}}<br>
+            </div>
+            <div class="book-footer mt-2">
+                <button type="submit" class="btn btn-info w-100">Purchase</button>
+            </div>
+        </form>
+    </div>
+    {{/each}}
+</div>
